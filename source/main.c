@@ -105,12 +105,10 @@ int main(int argc, char* argv[]){
                                 return 1;
                         }
                         else {
-				printf("donloaded: %s\n", argv[i]);
                                 retNameFunc = dlsym(lib_handler, "funcNameReturn");
                                 funcName = (*retNameFunc)();
                                 funcFinish = dlsym(lib_handler, "funcFinish");
                                 (*funcFinish)();
-//				printf("funcName: %s\n",funcName);
                                 if(funcName[0]!='O' && funcName[0]!='R'){
 					ptrfunc[i] = dlsym(lib_handler, funcName);
 	                                printf("press %d to use %s\n", i, funcName);
